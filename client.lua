@@ -70,10 +70,10 @@ end
 
 function sellcar()
     local input = lib.inputDialog('Cardealer', {
-        { type = 'input', label = 'Id',    required = true, min = 0, max = 16 },
-        { type = 'input', label = 'car',   required = true, min = 0, max = 16 },
-        { type = 'input', label = 'price', required = true, min = 0, max = 16 },
-        { type = 'input', label = 'type',  description = 'car, bike', required = true, min = 0, max = 16 },
+        { type = 'number', label = 'Id',    required = true},
+        { type = 'input', label = 'car',   required = true},
+        { type = 'number', label = 'price', required = true},
+        { type = 'input', label = 'type',  description = 'car, bike', required = true},
     })
     if input then
         TriggerServerEvent('buyvehicle', input)
