@@ -11,6 +11,7 @@ lib.callback.register('IsPlayerJob', function()
 end)
 
 RegisterNetEvent('buyvehicle', function(input)
+	if vRP.tryFullPayment({input[1], input[3]})
 	vRP.getUserIdentity({ input[1], function(identity)
 		MySQL.insert.await(
 			'INSERT INTO vrp_user_vehicles (user_id, vehicle, vehicle_plate, veh_type, hashkey) VALUES (@user_id, @vehicle, @vehicle_plate, @veh_type, @hashkey)',
@@ -21,5 +22,6 @@ RegisterNetEvent('buyvehicle', function(input)
 				["@veh_type"] = input[4],
 				["@hashkey"] = GetHashKey(input[2])
 			})
-	end})
+		end})
+	end
 end)
